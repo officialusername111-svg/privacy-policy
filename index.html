@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Knight's Treasure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f5c842;
+    --gold-dark: #c9922a;
+    --gold-dim: #a07832;
+    --bg: #0d0a15;
+    --bg2: #120d1e;
+    --parchment: #1a1208;
+    --border: rgba(201,146,42,0.35);
+    --text: #e8d5a0;
+    --text-dim: #b09060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield */
+  #stars-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Top decorative border */
+  .top-border {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold), var(--gold-dark), transparent);
+    z-index: 10;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* Header */
+  .site-header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeDown .8s ease both;
+  }
+
+  .shield-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 18px rgba(245,200,66,.5));
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { filter: drop-shadow(0 0 14px rgba(245,200,66,.4)); }
+    50%      { filter: drop-shadow(0 0 28px rgba(245,200,66,.8)); }
+  }
+
+  .site-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(245,200,66,.4);
+    margin-bottom: 6px;
+  }
+
+  .site-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.7rem, 2vw, .85rem);
+    color: var(--gold-dim);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Gold divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark));
+  }
+  .divider::after {
+    background: linear-gradient(270deg, transparent, var(--gold-dark));
+  }
+  .divider-gem {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* Page title */
+  .page-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .last-updated {
+    font-family: 'Cinzel', serif;
+    font-size: .75rem;
+    color: var(--gold-dim);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: .7;
+  }
+
+  /* Parchment card */
+  .parchment {
+    background: linear-gradient(135deg, rgba(26,18,8,.95) 0%, rgba(18,12,4,.98) 100%);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 36px 40px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp .6s ease both;
+  }
+
+  .parchment::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: .4;
+    pointer-events: none;
+  }
+
+  /* Corner ornaments */
+  .parchment::after {
+    content: '✦';
+    position: absolute;
+    top: 10px; right: 14px;
+    color: var(--gold-dark);
+    font-size: 14px;
+    opacity: .5;
+  }
+
+  .corner-tl {
+    position: absolute;
+    top: 10px; left: 14px;
+    color: var(--gold-dark);
+    font-size: 14px;
+    opacity: .5;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.85rem, 2.5vw, 1rem);
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::before {
+    content: '⚔';
+    font-size: 1em;
+    opacity: .7;
+  }
+
+  p {
+    color: var(--text);
+    margin-bottom: 14px;
+    font-size: 1rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245,200,66,.3);
+    transition: border-color .2s;
+  }
+  a:hover { border-color: var(--gold); }
+
+  /* Bullet list */
+  .scroll-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 14px;
+  }
+  .scroll-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    color: var(--text);
+    border-bottom: 1px solid rgba(201,146,42,.1);
+  }
+  .scroll-list li:last-child { border-bottom: none; }
+  .scroll-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-size: .65em;
+    top: 10px;
+  }
+
+  /* Contact box */
+  .contact-box {
+    background: rgba(245,200,66,.06);
+    border: 1px solid rgba(245,200,66,.2);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: .85rem;
+    color: var(--gold-dim);
+    letter-spacing: .5px;
+  }
+
+  /* Footer */
+  .site-footer {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Cinzel', serif;
+    font-size: .72rem;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+    opacity: .6;
+  }
+
+  /* Animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .parchment:nth-child(2) { animation-delay: .1s; }
+  .parchment:nth-child(3) { animation-delay: .2s; }
+  .parchment:nth-child(4) { animation-delay: .3s; }
+  .parchment:nth-child(5) { animation-delay: .4s; }
+  .parchment:nth-child(6) { animation-delay: .5s; }
+
+  @media (max-width: 600px) {
+    .parchment { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-border"></div>
+
+<!-- Starfield canvas -->
+<canvas id="stars-bg"></canvas>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header class="site-header">
+    <span class="shield-icon">🛡️</span>
+    <h1 class="site-title">⚔ Knight's Treasure ⚔</h1>
+    <p class="site-subtitle">Silent Stroke · Mobile Game</p>
+  </header>
+
+  <div class="divider"><div class="divider-gem"></div></div>
+
+  <h2 class="page-title">Privacy Policy</h2>
+  <p class="last-updated">Last Updated: June 6, 2026</p>
+
+  <!-- Intro -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">The Knight's Oath</div>
+    <p>
+      Welcome, brave adventurer. This Privacy Policy governs your use of
+      <em>Knight's Treasure</em>, a mobile game developed by <strong style="color:var(--gold)">Silent Stroke</strong>.
+      By playing this game, you agree to the terms set forth in this scroll.
+    </p>
+    <p>
+      We take your privacy seriously. This document explains what information
+      is collected, how it is used, and how it is protected.
+    </p>
+  </div>
+
+  <!-- Information We Collect -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Information We Collect</div>
+    <p>Knight's Treasure does <strong style="color:var(--gold)">not</strong> collect, store, or transmit any personal information from its players. We do not require account registration or login.</p>
+    <ul class="scroll-list">
+      <li>No name, email, or contact information is collected</li>
+      <li>No location data is tracked or stored</li>
+      <li>No camera or microphone access is requested</li>
+      <li>Game progress is saved locally on your device only</li>
+    </ul>
+  </div>
+
+  <!-- Advertising -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Advertisements</div>
+    <p>
+      This game uses <strong style="color:var(--gold)">Google AdMob</strong> to display reward-based advertisements.
+      AdMob may collect certain device information to serve relevant ads, including:
+    </p>
+    <ul class="scroll-list">
+      <li>Device identifiers (Advertising ID)</li>
+      <li>IP address and approximate location</li>
+      <li>Device type, OS version, and language</li>
+      <li>Ad interaction data</li>
+    </ul>
+    <p>
+      This data is collected and processed by Google, not by Silent Stroke.
+      To learn more, visit
+      <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>
+      and
+      <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob's Data Usage Policy</a>.
+    </p>
+  </div>
+
+  <!-- Children -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Children's Privacy</div>
+    <p>
+      Knight's Treasure is not directed to children under the age of 13.
+      We do not knowingly collect personal information from children.
+      If you believe a child has provided personal information through this app,
+      please contact us immediately so we can take appropriate action.
+    </p>
+  </div>
+
+  <!-- Third Party -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Third Party Services</div>
+    <p>This game integrates the following third-party services:</p>
+    <ul class="scroll-list">
+      <li><strong style="color:var(--gold)">Google AdMob</strong> — reward-based advertising</li>
+      <li><strong style="color:var(--gold)">Google Play Services</strong> — app distribution and updates</li>
+    </ul>
+    <p>
+      These services have their own privacy policies and data practices.
+      Silent Stroke is not responsible for the privacy practices of these third parties.
+    </p>
+  </div>
+
+  <!-- Changes -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Changes to This Policy</div>
+    <p>
+      We may update this Privacy Policy from time to time. Any changes will be
+      reflected on this page with an updated revision date. Continued use of
+      Knight's Treasure after any changes constitutes acceptance of the new policy.
+    </p>
+  </div>
+
+  <!-- Contact -->
+  <div class="parchment">
+    <span class="corner-tl">✦</span>
+    <div class="section-title">Contact the Guild</div>
+    <p>
+      If you have questions, concerns, or requests regarding this Privacy Policy
+      or your data, please reach out to us:
+    </p>
+    <div class="contact-box">
+      ✉ Developer: Silent Stroke<br>
+      ✉ Email: silentstroke.dev@gmail.com<br>
+      🛡 App: Knight's Treasure<br>
+      📦 Package: com.silentstroke.knightstreasure2
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-gem"></div></div>
+
+  <footer class="site-footer">
+    ⚔ &nbsp; © 2026 Silent Stroke &nbsp; · &nbsp; All Rights Reserved &nbsp; ⚔
+  </footer>
+
+</div>
+
+<script>
+// Starfield
+const canvas = document.getElementById('stars-bg');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+function initStars() {
+  stars = Array.from({length: 160}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    r: Math.random() * 1.4 + .3,
+    speed: Math.random() * .003 + .001,
+    offset: Math.random() * Math.PI * 2,
+    gold: Math.random() > .85
+  }));
+}
+
+function drawStars(t) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    const alpha = (.3 + .5 * Math.sin(t * s.speed * 60 + s.offset));
+    ctx.beginPath();
+    ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = s.gold
+      ? `rgba(240,196,106,${alpha * .7})`
+      : `rgba(255,255,255,${alpha * .5})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+
+resize();
+initStars();
+window.addEventListener('resize', () => { resize(); initStars(); });
+requestAnimationFrame(drawStars);
+</script>
+</body>
+</html>
